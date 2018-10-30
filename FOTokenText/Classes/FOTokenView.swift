@@ -30,7 +30,7 @@ open class FOTokenView: UIButton {
         addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
     }
     
-    func touchUpInside() {
+    @objc func touchUpInside() {
         if isSelected {
             textView?._removeToken(self)
         } else {
