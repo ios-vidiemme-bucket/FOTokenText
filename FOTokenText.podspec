@@ -9,8 +9,8 @@
 Pod::Spec.new do |s|
   s.name             = 'FOTokenText'
   s.version          = '0.2.0'
-  s.summary          = 'A short description of FOTokenText.'
-
+  s.summary          = 'A textview with token support.'
+  s.swift_version    = '4.1'
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
@@ -18,10 +18,10 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+A customizable textview with token support.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/FOTokenText'
+  s.homepage         = 'https://github.com/ios-vidiemme-bucket/FOTokenText'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Daniel Krofchick' => 'krofchick@gmail.com' }

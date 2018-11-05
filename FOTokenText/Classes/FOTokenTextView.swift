@@ -18,7 +18,7 @@ public protocol FOTokenTextViewProtocol {
 
 open class FOTokenTextView: UITextView {
     
-    var tokens = [FOTokenView]()
+    open fileprivate(set) var tokens = [FOTokenView]()
     var _tokenHeight = CGFloat(0)
     var tokenHeight: CGFloat {
         get {
