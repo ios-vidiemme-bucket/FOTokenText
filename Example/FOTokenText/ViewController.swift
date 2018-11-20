@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         textView.clearButton?.addTarget(self, action: #selector(clearTap), for: .touchUpInside)
         view.addSubview(textView)
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextViewTextDidChange, object: textView, queue: .main) {
+        NotificationCenter.default.addObserver(forName: UITextView.textDidChangeNotification, object: textView, queue: .main) {
             [weak self] note in
             if let this = self {
                 this.view.setNeedsLayout()
@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func clearTap() {
+    @objc func clearTap() {
         textView.textView.text = nil
         textView.setNeedsLayout()
     }
@@ -59,7 +59,7 @@ extension ViewController: FOTokenTextViewProtocol {
     
     func newToken(_ textView: FOTokenTextView, text: String) -> FOTokenView {
         let token = FOTokenView(type: .system)
-        token.setTitle(text, for: UIControlState())
+        token.setTitle(text, for: UIControl.State())
         token.titleLabel?.font = textView.font
         
         return token
@@ -95,9 +95,9 @@ class FOCustomToken: FOTokenView {
         layer.borderColor = UIColor.purple.cgColor
         layer.masksToBounds = true
         
-        setTitleColor(UIColor.brown, for: UIControlState())
+        setTitleColor(UIColor.brown, for: UIControl.State())
         
-        setBackgroundImage(UIImage(color: UIColor.yellow), for: UIControlState())
+        setBackgroundImage(UIImage(color: UIColor.yellow), for: UIControl.State())
         setBackgroundImage(UIImage(color: UIColor.green), for: .selected)
         setBackgroundImage(UIImage(color: UIColor.green), for: [.selected, .highlighted])
         
