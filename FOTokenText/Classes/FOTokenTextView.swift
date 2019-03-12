@@ -122,7 +122,12 @@ open class FOTokenTextView: UITextView {
         
         let (paths, inset) = tokenExlusions()
         textContainer.exclusionPaths = paths
-        textContainerInset = UIEdgeInsetsMake(inset, textEdgeInsets.left, textEdgeInsets.bottom, textEdgeInsets.right)
+        if tokens.count == 0 {
+            textContainerInset = UIEdgeInsetsMake(inset, textEdgeInsets.left, textEdgeInsets.bottom, textEdgeInsets.right)
+        }
+        else {
+            textContainerInset = UIEdgeInsetsMake(inset, 0, 0, 0)
+        }
         
         super.layoutSubviews()
     }
@@ -174,7 +179,7 @@ open class FOTokenTextView: UITextView {
             if index == 0 {
                 // First
                 tRect = CGRect(x: 0, y: 0, width: frame.width, height: token.frame.minY)
-                bRect = CGRect(x: 0, y: tokenEdgeInsets.top, width: token.frame.maxX + tokenEdgeInsets.left, height: token.frame.height)
+                bRect = CGRect(x: 0, y: tokenEdgeInsets.top, width: token.frame.maxX + tokenEdgeInsets.left + textEdgeInsets.left, height: token.frame.height)
             } else if token.frame.minY != bRect.minY {
                 // New line
                 tRect = CGRect(x: 0, y: 0, width: frame.width, height: token.frame.minY)
