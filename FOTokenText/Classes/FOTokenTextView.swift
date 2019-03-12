@@ -30,6 +30,7 @@ open class FOTokenTextView: UITextView {
         }
     }
     open var tokenEdgeInsets = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    open var textEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     open var debug = false
     open var tokenDelegate: FOTokenTextViewProtocol? = nil
     
@@ -121,7 +122,7 @@ open class FOTokenTextView: UITextView {
         
         let (paths, inset) = tokenExlusions()
         textContainer.exclusionPaths = paths
-        textContainerInset = UIEdgeInsetsMake(inset, 0, 0, 0)
+        textContainerInset = UIEdgeInsetsMake(inset, textEdgeInsets.left, textEdgeInsets.bottom, textEdgeInsets.right)
         
         super.layoutSubviews()
     }
