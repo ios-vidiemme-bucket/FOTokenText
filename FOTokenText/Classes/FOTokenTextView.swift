@@ -46,7 +46,7 @@ open class FOTokenTextView: UITextView {
         layoutIfNeeded()
         text = ""
     }
-        
+    
     func doDelete() {
         if let token = tokens.last {
             if token.isSelected {
@@ -122,19 +122,15 @@ open class FOTokenTextView: UITextView {
         
         let (paths, inset) = tokenExlusions()
         textContainer.exclusionPaths = paths
-        if tokens.count == 0 {
-            textContainerInset = UIEdgeInsetsMake(inset, textEdgeInsets.left, textEdgeInsets.bottom, textEdgeInsets.right)
-        }
-        else {
-            textContainerInset = UIEdgeInsetsMake(inset, 0, 0, 0)
-        }
+        
+        textContainerInset = UIEdgeInsetsMake(inset, textEdgeInsets.left, textEdgeInsets.bottom, textEdgeInsets.right)
         
         super.layoutSubviews()
     }
     
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
         var s = super.sizeThatFits(size)
-
+        
         if !text.isEmpty {
             s.height -= heightOffset()
         }
@@ -166,6 +162,10 @@ open class FOTokenTextView: UITextView {
             token.frame = CGRect(origin: p, size: s)
             
             p.x += s.width
+            
+            if index == 0 {
+                textEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            }
         }
     }
     
@@ -198,9 +198,9 @@ open class FOTokenTextView: UITextView {
         
         let path = UIBezierPath()
         path.lineWidth = 4
-
+        
         path.move(to: CGPoint.zero)
-
+        
         if tRect == CGRect.zero {
             path.addLine(to: CGPoint(x: bRect.maxX, y: 0))
             path.addLine(to: CGPoint(x: bRect.maxX, y: bRect.maxY))
