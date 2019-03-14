@@ -151,7 +151,7 @@ open class FOTokenTextView: UITextView {
             if p.x + s.width + tokenEdgeInsets.left + tokenEdgeInsets.right >= frame.width && index != 0 {
                 p.x = 0
                 p.y += s.height + tokenEdgeInsets.top
-                tokenDelegate.newLine()
+                tokenDelegate?.newLine()
             }
             
             // Max width
