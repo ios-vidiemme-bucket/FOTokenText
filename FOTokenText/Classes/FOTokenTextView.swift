@@ -12,6 +12,7 @@ public protocol FOTokenTextViewProtocol {
     func newToken(_ textView: FOTokenTextView, text: String) -> FOTokenView
     func didRemove(_ token: FOTokenView)
     func didAdd(_ token: FOTokenView)
+    func newLine()
     func shouldRemoveOnDelete(_ token: FOTokenView) -> Bool
     func shouldAddOnReturn(_ text: String) -> Bool
 }
@@ -150,6 +151,7 @@ open class FOTokenTextView: UITextView {
             if p.x + s.width + tokenEdgeInsets.left + tokenEdgeInsets.right >= frame.width && index != 0 {
                 p.x = 0
                 p.y += s.height + tokenEdgeInsets.top
+                tokenDelegate.newLine()
             }
             
             // Max width
