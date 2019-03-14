@@ -151,7 +151,6 @@ open class FOTokenTextView: UITextView {
             if p.x + s.width + tokenEdgeInsets.left + tokenEdgeInsets.right >= frame.width && index != 0 {
                 p.x = 0
                 p.y += s.height + tokenEdgeInsets.top
-                tokenDelegate?.newLine()
             }
             
             // Max width
@@ -186,6 +185,7 @@ open class FOTokenTextView: UITextView {
                 // New line
                 tRect = CGRect(x: 0, y: 0, width: frame.width, height: token.frame.minY)
                 bRect = CGRect(x: 0, y: token.frame.minY, width: token.frame.maxX + tokenEdgeInsets.left, height: token.frame.height)
+                tokenDelegate?.newLine()
             } else {
                 // Same line
                 let tokenSize = token.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
