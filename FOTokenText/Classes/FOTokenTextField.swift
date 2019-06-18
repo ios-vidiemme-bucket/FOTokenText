@@ -54,7 +54,7 @@ open class FOTokenTextField: UIView {
         textView.backgroundColor = UIColor.clear
         addSubview(textView)
         
-        NotificationCenter.default.addObserver(forName: UITextView.NSNotification.Name.UITextViewTextDidChange, object: textView, queue: .main) {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextViewTextDidChange, object: textView, queue: .main) {
             [weak self] note in
             self?.updateClearButton()
         }
