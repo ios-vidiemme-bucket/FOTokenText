@@ -19,9 +19,9 @@ open class FOTokenView: UIButton {
         layer.borderColor = UIColor.orange.cgColor
         layer.masksToBounds = true
         
-        setTitleColor(UIColor.brown, for: UIControlState())
+        setTitleColor(UIColor.brown, for: UIControl.State())
         
-        setBackgroundImage(UIImage(color: UIColor.lightGray), for: UIControlState())
+        setBackgroundImage(UIImage(color: UIColor.lightGray), for: UIControl.State())
         setBackgroundImage(UIImage(color: UIColor.blue), for: .selected)
         setBackgroundImage(UIImage(color: UIColor.blue), for: [.selected, .highlighted])
         
