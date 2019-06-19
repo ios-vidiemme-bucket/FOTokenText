@@ -27,7 +27,7 @@ open class FOTokenTextField: UIView {
     }
     
     open var clearButton: UIButton? = nil
-    open var clearButtonMode: UITextFieldViewMode = .whileEditing {
+    open var clearButtonMode: UITextField.ViewMode = .whileEditing {
         didSet {
             if clearButtonMode == .whileEditing {
                 clearButton = createClearButton()
@@ -42,7 +42,7 @@ open class FOTokenTextField: UIView {
     
     func createClearButton() -> UIButton {
         let button = UIButton(type: .system)
-        button.setImage(UIImage(named: "FOToken_delete.png")?.withRenderingMode(.alwaysOriginal), for: UIControlState())
+        button.setImage(UIImage(named: "FOToken_delete.png")?.withRenderingMode(.alwaysOriginal), for: UIControl.State())
         button.contentEdgeInsets = UIEdgeInsets(top: 3, left: 3, bottom: 3, right: 0)
     
         return button
@@ -54,7 +54,7 @@ open class FOTokenTextField: UIView {
         textView.backgroundColor = UIColor.clear
         addSubview(textView)
         
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextViewTextDidChange, object: textView, queue: .main) {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextView.textDidChangeNotification, object: textView, queue: .main) {
             [weak self] note in
             self?.updateClearButton()
         }

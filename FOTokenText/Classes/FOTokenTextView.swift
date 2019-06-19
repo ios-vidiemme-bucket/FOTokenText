@@ -92,7 +92,7 @@ open class FOTokenTextView: UITextView {
             return token
         } else {
             let token = FOTokenView(type: .system)
-            token.setTitle(text, for: UIControlState())
+            token.setTitle(text, for: UIControl.State())
             token.titleLabel?.font = font
             token.textView = self
             token.identifier = text
@@ -124,7 +124,7 @@ open class FOTokenTextView: UITextView {
         let (paths, inset) = tokenExlusions()
         textContainer.exclusionPaths = paths
         
-        textContainerInset = UIEdgeInsetsMake(inset, textEdgeInsets.left, textEdgeInsets.bottom, textEdgeInsets.right)
+        textContainerInset = UIEdgeInsets(top: inset, left: textEdgeInsets.left, bottom: textEdgeInsets.bottom, right: textEdgeInsets.right)
         
         super.layoutSubviews()
     }
