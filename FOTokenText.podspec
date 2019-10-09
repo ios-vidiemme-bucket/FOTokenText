@@ -30,8 +30,8 @@ A customizable textview with token support.
 
   s.ios.deployment_target = '8.0'
   
-  s.source_files = 'Classes'
-  s.resources = 'Assets/*.png'
+  s.source_files = 'FOTokenText/Classes/*.swift'
+  s.resources = 'FOTokenText/Classes/*.png'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
