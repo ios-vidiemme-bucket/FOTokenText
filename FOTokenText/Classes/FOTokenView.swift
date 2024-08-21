@@ -25,7 +25,7 @@ open class FOTokenView: UIButton {
         setBackgroundImage(UIImage(color: UIColor.blue), for: .selected)
         setBackgroundImage(UIImage(color: UIColor.blue), for: [.selected, .highlighted])
         
-        contentEdgeInsets = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
+        contentEdgeInsets = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
         
         addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
     }
